@@ -11,6 +11,7 @@ module.exports = function (app) {
       response.json(error1);
     }
   });
+
   app.get("/customers/:id?", async function (request, response) {
     try {
       const ans = await customerController.readOneCustomer(request.params.id);
