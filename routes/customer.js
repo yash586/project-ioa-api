@@ -1,6 +1,7 @@
 const { json, response } = require("express");
 const customerController = require("../controllers/customers.controller");
 const { addUserValidation } = require("../validation/users/user.validation");
+
 module.exports = function (app) {
   app.get("/customers", async function (request, response) {
     try {
@@ -10,7 +11,6 @@ module.exports = function (app) {
       response.json(error1);
     }
   });
-
   app.get("/customers/:id?", async function (request, response) {
     try {
       const ans = await customerController.readOneCustomer(request.params.id);
